@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
+using TMPro;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class UICanvas : MonoBehaviour
 {
-    public float moveSpeed;
-    public Rigidbody2D rb;
     // Start is called before the first frame update
+
+    [SerializeField] private TMP_Text playerHealth;
     void Start()
     {
         
@@ -16,10 +16,6 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void FixedUpdate()
-    {
-        float moveX = Input.GetAxisRaw("Horizontal");
+        playerHealth.text = GameManager.instance.playerHealth.ToString();
     }
 }
