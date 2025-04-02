@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool playerAlive = true;
     [SerializeField] public bool underLigth = false;
 
-
     private void Awake()
     {
         if (instance == null)
@@ -24,6 +23,4 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }
