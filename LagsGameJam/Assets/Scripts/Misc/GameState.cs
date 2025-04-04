@@ -9,6 +9,7 @@ public class GameState : MonoBehaviour
     private bool playerDied = false;
     void Start()
     {
+        AudioManager.instance.PlayMusic("Level1");
         GameManager.instance.playerHealth = 2;
     }
 
