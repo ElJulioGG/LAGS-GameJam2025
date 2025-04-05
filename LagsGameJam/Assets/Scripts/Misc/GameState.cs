@@ -28,4 +28,6 @@ public class GameState : MonoBehaviour
         deathCanvas.SetActive(true);
         playerDied = true;
     }
+
+    //public IEnumerator
 }
