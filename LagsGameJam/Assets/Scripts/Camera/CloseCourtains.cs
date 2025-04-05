@@ -6,7 +6,7 @@ public class CloseCourtains : MonoBehaviour
 {
     public Transform cortinaIzq;
     public Transform cortinaDer;
-
+    public Transform pais;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F)) {
@@ -20,10 +20,12 @@ public class CloseCourtains : MonoBehaviour
     void CloseCortain() {
         cortinaDer.transform.DOMoveX(6f, 1.5f).SetEase(Ease.OutExpo);
         cortinaIzq.transform.DOMoveX(-6f, 1.5f).SetEase(Ease.OutExpo);
+        pais.transform.DOMoveY(8f, 1.5f).SetEase(Ease.OutExpo);
     }
     void OpenCortain() {
         cortinaDer.transform.DOMoveX(16f, 1.5f).SetEase(Ease.OutExpo);
         cortinaIzq.transform.DOMoveX(-16f, 1.5f).SetEase(Ease.OutExpo);
+        pais.transform.DOMoveY(3f, 1.5f).SetEase(Ease.OutExpo);
     }
 
 
