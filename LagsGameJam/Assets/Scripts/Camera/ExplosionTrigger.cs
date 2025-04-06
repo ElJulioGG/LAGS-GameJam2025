@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ExplosionTrigger : MonoBehaviour
 {
-    public ParticleSystem explosio;
+   // public ParticleSystem explosio;
     public CameraShake cameraShake;
     private void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-            explosio.Play();
+ //           explosio.Play();
             StartCoroutine(cameraShake.Shake(.15f, .4f));
         }
     }
