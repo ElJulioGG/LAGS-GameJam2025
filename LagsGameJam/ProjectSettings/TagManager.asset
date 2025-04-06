@@ -6,6 +6,11 @@ TagManager:
   tags:
   - DeathHitbox
   - spotlight
+  - Rope
+  - Diamond
+  - Condition
+  - DER
+  - IZQ
   layers:
   - Default
   - TransparentFX

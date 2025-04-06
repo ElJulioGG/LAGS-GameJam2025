@@ -17,6 +17,9 @@ public class CloseCourtains : MonoBehaviour
     public Transform argentina;
 
     public MinigameController minigameController;
+    public Diamond diamondRight;
+    public Diamond diamondLeft;
+
 
     private void Update()
     {
@@ -64,6 +67,14 @@ public class CloseCourtains : MonoBehaviour
             argentina.transform.DOMoveY(1f, 1.5f).SetEase(Ease.OutExpo);
             argentina.transform.DOMoveY(-10f, 1.5f).SetEase(Ease.OutExpo).SetDelay(5f);
 
+        }
+        if (diamondRight.isChile==true) {
+            peru.transform.DOMoveY(10f, 1.5f).SetEase(Ease.OutExpo);
+            peru.transform.DOMoveY(-10f, 1.5f).SetEase(Ease.OutExpo).SetDelay(5f);
+        }
+        if (diamondLeft.isBrazil==true) {
+            colombia.transform.DOMoveY(10f, 1.5f).SetEase(Ease.OutExpo);
+            colombia.transform.DOMoveY(-10f, 1.5f).SetEase(Ease.OutExpo).SetDelay(5f);
         }
     }
 }

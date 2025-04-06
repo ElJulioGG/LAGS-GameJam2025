@@ -535,7 +535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &61189215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2296,8 +2296,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0
   m_LocalBounds:
-    m_Center: {x: 0.0024999976, y: 0.0013000369, z: 0}
-    m_Extent: {x: 1.1854, y: 1.1844001, z: 0}
+    m_Center: {x: -0.0015000105, y: 0.0024000406, z: 0}
+    m_Extent: {x: 1.1867, y: 1.1903, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3474,7 +3474,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3451698364
+    rgba: 12369084
   m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3829,7 +3829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &951650666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9403,7 +9403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1232332884
 Transform:
   m_ObjectHideFlags: 0
@@ -10303,7 +10303,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3451698364
+    rgba: 12369084
   m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -10738,8 +10738,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0
   m_LocalBounds:
-    m_Center: {x: 0.0015499592, y: 0.0052500367, z: 0}
-    m_Extent: {x: 1.18635, y: 1.19385, z: 0}
+    m_Center: {x: 0.00029999018, y: -0.0038999915, z: 0}
+    m_Extent: {x: 1.1959, y: 1.1901, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -11598,7 +11598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1860389812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11830,7 +11830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1980942042
 MonoBehaviour:
   m_ObjectHideFlags: 0
