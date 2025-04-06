@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JulioScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Primer Minigame Scene.unity
+    guid: b5bc309cd62cb0a448b443440e6d30ac
+  - enabled: 1
+    path: Assets/Scenes/IlanScene.unity
+    guid: 6084bbde4666925459b2036283b633b6
+  - enabled: 1
+    path: Assets/Scenes/Segundo Minigame Scene.unity
+    guid: 4601a74bd451fb44799d5e3b4fa61a2c
   m_configObjects: {}
