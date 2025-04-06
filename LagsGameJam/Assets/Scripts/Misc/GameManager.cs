@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [Header("Player Stats")]
-    [SerializeField] public int playerHealth = 4;
+    [SerializeField] public int playerHealth = 1;
     [SerializeField] public bool playerAlive = true;
+    [SerializeField] public bool playerCanMove = true;
     [SerializeField] public bool underLigth = false;
 
     private void Awake()

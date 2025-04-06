@@ -8,6 +8,13 @@ public class SpotlightEntity : MonoBehaviour
     public float disableDelay = 2f; // Time before disabling the object
     private Collider2D col;
     private SpriteRenderer spriteRenderer;
+    private DeathHitbox deathHitbox;
+
+    private void Start()
+    {
+        // Find the shared DeathHitbox in the scene
+        deathHitbox = FindObjectOfType<DeathHitbox>();
+    }
 
     void Awake()
     {
@@ -37,8 +44,10 @@ public class SpotlightEntity : MonoBehaviour
 
         SetAlpha(1f); // Fully visible
         col.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        deathHitbox?.ActivateTemporarily();
 
-        yield return new WaitForSeconds(disableDelay); // Wait before disabling
+        yield return new WaitForSeconds(disableDelay - 0.1f); // Wait before disabling
 
         gameObject.SetActive(false); // Disable the object
     }

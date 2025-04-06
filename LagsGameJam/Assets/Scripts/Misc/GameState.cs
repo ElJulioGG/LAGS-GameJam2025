@@ -6,11 +6,15 @@ public class GameState : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject deathCanvas;
+    [SerializeField] private GameObject spotlightManager;
     private bool playerDied = false;
     void Start()
     {
         AudioManager.instance.PlayMusic("Level1");
-        GameManager.instance.playerHealth = 2;
+        GameManager.instance.playerHealth = 1;
+        GameManager.instance.playerAlive = true;
+        GameManager.instance.playerCanMove = true;
+        GameManager.instance.underLigth = false;
     }
 
     // Update is called once per frame
@@ -26,6 +30,7 @@ public class GameState : MonoBehaviour
     {
         GameManager.instance.playerAlive = false;
         deathCanvas.SetActive(true);
+        spotlightManager.SetActive(false);
         playerDied = true;
     }
 

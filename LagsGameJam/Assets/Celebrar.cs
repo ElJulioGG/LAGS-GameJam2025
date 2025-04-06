@@ -14,27 +14,31 @@ public class Celebrar : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !estaMoviendo)
+        //if (Input.GetKeyDown(KeyCode.Space) && !estaMoviendo)
+        //{
+        //    moverAudiencia();
+        //}
+    }
+    public void moverAudiencia()
+    {
+        estaMoviendo = true;
+
+        // Altura aleatoria entre 0.3 y 1.3
+        float alturaRandom = Random.Range(0.3f, 1.3f);
+
+        // Inicia el movimiento arriba/abajo
+        movimiento = transform.DOMoveY(transform.position.y + alturaRandom, duracion)
+                              .SetLoops(-1, LoopType.Yoyo)
+                              .SetEase(Ease.InOutSine);
+
+        // Lo detiene después de tiempoTotal segundos
+        DOVirtual.DelayedCall(tiempoTotal, () =>
         {
-            estaMoviendo = true;
-
-            // Altura aleatoria entre 0.3 y 1.3
-            float alturaRandom = Random.Range(0.3f, 1.3f);
-
-            // Inicia el movimiento arriba/abajo
-            movimiento = transform.DOMoveY(transform.position.y + alturaRandom, duracion)
-                                  .SetLoops(-1, LoopType.Yoyo)
-                                  .SetEase(Ease.InOutSine);
-
-            // Lo detiene después de tiempoTotal segundos
-            DOVirtual.DelayedCall(tiempoTotal, () =>
+            if (movimiento.IsActive())
             {
-                if (movimiento.IsActive())
-                {
-                    movimiento.Kill(); // detiene el loop
-                    estaMoviendo = false;
-                }
-            });
-        }
+                movimiento.Kill(); // detiene el loop
+                estaMoviendo = false;
+            }
+        });
     }
 }
