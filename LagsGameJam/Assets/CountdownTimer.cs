@@ -6,8 +6,10 @@ public class CountdownTimerTMP : MonoBehaviour
     public TextMeshPro timerText;
     public float timeRemaining = 60f;
     private bool timerRunning = true;
-
+    public GameObject Messi;
     public MinigameController minigameController; // arrástralo en el Inspector
+    private bool messiShown = false;
+    private bool messiHidden = false;
 
     void Update()
     {
@@ -20,10 +22,21 @@ public class CountdownTimerTMP : MonoBehaviour
                     timeRemaining -= Time.deltaTime;
                     UpdateTimerDisplay(timeRemaining);
 
-                    // Habilitar el minijuego cuando empiece el contador
-                    if (!minigameController.canPlayMinigame)
-                        minigameController.canPlayMinigame = true;
+                    // Mostrar a Messi en el segundo 30
+                    if (!messiShown && timeRemaining <= 30f)
+                    {
+                        Messi.SetActive(true);
+                        messiShown = true;
+                    }
+
+                    // Ocultar a Messi en el segundo 28
+                    if (!messiHidden && timeRemaining <= 28f)
+                    {
+                        Messi.SetActive(false);
+                        messiHidden = true;
+                    }
                 }
+    
                 else
                 {
                     timeRemaining = 0;

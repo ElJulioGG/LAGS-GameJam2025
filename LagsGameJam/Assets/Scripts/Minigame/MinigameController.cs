@@ -23,8 +23,8 @@ public class MinigameController : MonoBehaviour
     public TextMeshPro rival1Counter;
     public TextMeshPro rival2Counter;
 
-    private int rival1Puntaje = 0;
-    private int rival2Puntaje = 0;
+    public int rival1Puntaje = 0;
+    public int rival2Puntaje = 0;
     private float rival1Timer = 0f;
     private float rival2Timer = 0f;
 
@@ -55,6 +55,15 @@ public class MinigameController : MonoBehaviour
     private int pilaIndexRival2 = 0;
     private int sortingOrderRival2 = 0;
 
+    public bool peru;
+    public bool argentina;
+    public bool colombia;
+
+    public GameObject peruCondition;
+    public GameObject argentinauCondition;
+    public GameObject colombiauCondition;
+
+    public CloseCourtains closeCourtains;
     private void Start()
     {
 
@@ -152,7 +161,8 @@ public class MinigameController : MonoBehaviour
         {
             gameFinished = true;
             canPlayMinigame = false;
-
+            closeCourtains.CloseCortain();
+            closeCourtains.PaisGano();
             // Llenar ranking
             ranking.Add(("Jugador", PAPA));
             ranking.Add(("Rival1", rival1Puntaje));
@@ -160,6 +170,20 @@ public class MinigameController : MonoBehaviour
 
             // Ordenar por puntaje descendente
             ranking.Sort((a, b) => b.score.CompareTo(a.score));
+
+            if (rival1Puntaje == 60) {
+                peru = true;
+                peruCondition.SetActive(true);
+            }
+            if (rival2Puntaje == 60)
+            {
+                colombia = true;
+                colombiauCondition.SetActive(true);
+            }
+            if (PAPA == 60) {
+                argentina = true;
+                argentinauCondition.SetActive(true);
+            }
 
             // Buscar tu puesto
             for (int i = 0; i < ranking.Count; i++)

@@ -11,11 +11,16 @@ public class CloseCourtains : MonoBehaviour
     public Transform puntuaProta;
     public Transform puntua1;
     public Transform puntua2;
+
+    public Transform peru;
+    public Transform colombia;
+    public Transform argentina;
+
+    public MinigameController minigameController;
+
     private void Update()
     {
-       // if (Input.GetKeyDown(KeyCode.F)) {
-       //     CloseCortain();
-       // }
+
        // if (Input.GetKeyDown(KeyCode.D))
        // {
        //     OpenCortain();
@@ -41,5 +46,24 @@ public class CloseCourtains : MonoBehaviour
         puntua2.transform.DOMoveY(-4f, 1.5f).SetEase(Ease.OutExpo);
     }
 
+    public void PaisGano() {
 
+        if (minigameController.rival1Puntaje==60)
+        {
+            peru.transform.DOMoveY(1f, 1.5f).SetEase(Ease.OutExpo);
+            peru.transform.DOMoveY(-10f, 1.5f).SetEase(Ease.OutExpo).SetDelay(5f);
+
+        }
+        if (minigameController.rival2Puntaje==60)
+        {
+            colombia.transform.DOMoveY(1f, 1.5f).SetEase(Ease.OutExpo);
+            colombia.transform.DOMoveY(-10f, 1.5f).SetEase(Ease.OutExpo).SetDelay(5f);
+        }
+        if (minigameController.PAPA==60)
+        {
+            argentina.transform.DOMoveY(1f, 1.5f).SetEase(Ease.OutExpo);
+            argentina.transform.DOMoveY(-10f, 1.5f).SetEase(Ease.OutExpo).SetDelay(5f);
+
+        }
+    }
 }
