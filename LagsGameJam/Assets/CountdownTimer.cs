@@ -3,25 +3,40 @@ using TMPro;
 
 public class CountdownTimerTMP : MonoBehaviour
 {
-    public TextMeshPro timerText; // Arrastra el componente TMP aquí
-    public float timeRemaining = 60f; // 1 minuto en segundos
+    public TextMeshPro timerText;
+    public float timeRemaining = 60f;
     private bool timerRunning = true;
+
+    public MinigameController minigameController; // arrástralo en el Inspector
 
     void Update()
     {
-        if (timerRunning)
+        if (minigameController.canPlayMinigame)
         {
-            if (timeRemaining > 0)
+            if (timerRunning)
             {
-                timeRemaining -= Time.deltaTime;
-                UpdateTimerDisplay(timeRemaining);
-            }
-            else
-            {
-                timerRunning = false;
-                timeRemaining = 0;
-                UpdateTimerDisplay(timeRemaining);
-                Debug.Log("¡Tiempo terminado!");
+                if (timeRemaining > 0)
+                {
+                    timeRemaining -= Time.deltaTime;
+                    UpdateTimerDisplay(timeRemaining);
+
+                    // Habilitar el minijuego cuando empiece el contador
+                    if (!minigameController.canPlayMinigame)
+                        minigameController.canPlayMinigame = true;
+                }
+                else
+                {
+                    timeRemaining = 0;
+                    timerRunning = false;
+                    UpdateTimerDisplay(timeRemaining);
+                    Debug.Log("¡Tiempo terminado!");
+
+                    // Forzar fin de juego
+                    if (!minigameController.IsGameFinished())
+                    {
+                        minigameController.FinishGameDueToTime();
+                    }
+                }
             }
         }
     }
@@ -30,7 +45,6 @@ public class CountdownTimerTMP : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(timeToDisplay / 60);
         int seconds = Mathf.FloorToInt(timeToDisplay % 60);
-
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
