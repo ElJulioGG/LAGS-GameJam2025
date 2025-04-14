@@ -20,6 +20,7 @@ public class CloseCourtains : MonoBehaviour
     public Diamond diamondRight;
     public Diamond diamondLeft;
 
+    public Animator animator;
 
     private void Update()
     {
@@ -38,6 +39,9 @@ public class CloseCourtains : MonoBehaviour
         puntuaProta.transform.DOMoveY(-12f, 1.5f).SetEase(Ease.OutExpo);
         puntua1.transform.DOMoveY(-12f, 1.5f).SetEase(Ease.OutExpo);
         puntua2.transform.DOMoveY(-12f, 1.5f).SetEase(Ease.OutExpo);
+
+        animator.SetBool("IsOpen", false);
+
     }
     public void OpenCortain() {
         cortinaDer.transform.DOMoveX(16f, 1.5f).SetEase(Ease.OutExpo);
@@ -47,6 +51,8 @@ public class CloseCourtains : MonoBehaviour
         puntuaProta.transform.DOMoveY(-4f, 1.5f).SetEase(Ease.OutExpo);
         puntua1.transform.DOMoveY(-4f, 1.5f).SetEase(Ease.OutExpo);
         puntua2.transform.DOMoveY(-4f, 1.5f).SetEase(Ease.OutExpo);
+        animator.SetBool("IsOpen", true);
+
     }
 
     public void PaisGano() {

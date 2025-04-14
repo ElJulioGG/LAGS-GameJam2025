@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class MinigameController : MonoBehaviour
 {
     public GameObject imagePrefab;     // Prefab de imagen
@@ -64,9 +65,13 @@ public class MinigameController : MonoBehaviour
     public GameObject colombiauCondition;
 
     public CloseCourtains closeCourtains;
+
+    public Animator animation;
+
+    //public GameObject Gamep;
     private void Start()
     {
-
+        //Gamep.SetActive(false);
         esperaMusic.Play();
     }
 
@@ -98,6 +103,18 @@ public class MinigameController : MonoBehaviour
                 rival1Counter.text = rival1Puntaje + "/60";
                 rival1Timer = 0f;
                 GenerateImageForRival(pilaBaseRival1, ref imageIndexRival1, ref pilaIndexRival1, ref sortingOrderRival1);
+                if (rival1Puntaje >= 10)
+                {
+                    animation.SetBool("isEa1", true);
+                }
+                if (rival1Puntaje >= 30)
+                {
+                    animation.SetBool("isEa2", true);
+                }
+                if (rival1Puntaje >= 45)
+                {
+                    animation.SetBool("isEa3", true);
+                }
             }
 
             // Rival 2
@@ -185,6 +202,8 @@ public class MinigameController : MonoBehaviour
                 argentinauCondition.SetActive(true);
             }
 
+            StartCoroutine(EsperarYCargar());
+
             // Buscar tu puesto
             for (int i = 0; i < ranking.Count; i++)
             {
@@ -197,21 +216,33 @@ public class MinigameController : MonoBehaviour
                     {
                         case 1:
                             firstPlaceMusic.Play();
+                           // Gamep.SetActive(true);
+
                             break;
                         case 2:
                             secondPlaceMusic.Play();
+                           // Gamep.SetActive(true);
+
                             break;
                         case 3:
                             thirdPlaceMusic.Play();
+                           // Gamep.SetActive(true);
+
                             break;
                     }
 
                     break;
                 }
             }
+
+
         }
     }
-
+    IEnumerator EsperarYCargar()
+    {
+        yield return new WaitForSeconds(8f); // Espera 7 segundos
+        SceneManager.LoadScene("IlanScene"); // Carga la escena por nombre
+    }
     void GenerateImageForRival(Transform basePila, ref int indexInPila, ref int pilaIndex, ref int sortingOrder)
     {
         if (imagePrefab == null || basePila == null)
@@ -253,6 +284,7 @@ public class MinigameController : MonoBehaviour
         Debug.Log("Juego terminado por tiempo.");
         gameFinished = true;
         canPlayMinigame = false;
+     
 
         // Agregar al ranking actual
         ranking.Add(("Jugador", PAPA));
@@ -270,17 +302,25 @@ public class MinigameController : MonoBehaviour
                 {
                     case 1:
                         firstPlaceMusic.Play();
+                      //  Gamep.SetActive(true);
                         break;
                     case 2:
                         secondPlaceMusic.Play();
+                     //   Gamep.SetActive(true);
                         break;
                     case 3:
                         thirdPlaceMusic.Play();
+                     //   Gamep.SetActive(true);
                         break;
                 }
                 break;
             }
         }
+
+
+
+        
+
     }
 
 
