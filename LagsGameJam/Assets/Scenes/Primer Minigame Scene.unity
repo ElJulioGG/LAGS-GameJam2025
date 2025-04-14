@@ -2589,8 +2589,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0
   m_LocalBounds:
-    m_Center: {x: -0.0029000044, y: 0.0020499825, z: 0}
-    m_Extent: {x: 1.1871, y: 1.19205, z: 0}
+    m_Center: {x: 0.004700005, y: 0.0015999675, z: 0}
+    m_Extent: {x: 1.1886001, y: 1.185, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -11191,8 +11191,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0
   m_LocalBounds:
-    m_Center: {x: 0.00045001507, y: -0.00515002, z: 0}
-    m_Extent: {x: 1.18865, y: 1.1891501, z: 0}
+    m_Center: {x: -0.0020500422, y: -0.0022499561, z: 0}
+    m_Extent: {x: 1.19065, y: 1.18215, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -12091,7 +12091,6 @@ MonoBehaviour:
   colombiauCondition: {fileID: 920517088}
   closeCourtains: {fileID: 838345680}
   animation: {fileID: 731040677}
-  Texto: {fileID: 0}
 --- !u!4 &1860389813
 Transform:
   m_ObjectHideFlags: 0
@@ -12285,7 +12284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1974309504
 MonoBehaviour:
   m_ObjectHideFlags: 0

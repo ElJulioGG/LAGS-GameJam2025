@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RopeManager : MonoBehaviour
 {
@@ -16,6 +19,7 @@ public class RopeManager : MonoBehaviour
     public AudioSource musicBefore;
     public AudioSource musicDuring;
     public AudioSource musicAfter;
+    public Animator ropeAnimator;
 
     void Awake()
     {
@@ -24,7 +28,6 @@ public class RopeManager : MonoBehaviour
 
     void Update()
     {
-        // Comienza el juego si presionas D
         if (!gameStarted && Input.GetKeyDown(KeyCode.D))
         {
             gameStarted = true;
@@ -34,7 +37,22 @@ public class RopeManager : MonoBehaviour
         }
 
         UpdateRopePosition();
+
+        if (ropeAnimator != null)
+        {
+            ropeAnimator.SetFloat("ropeValue", ropeValue);
+        }
+
+        if (gameStarted)
+        {
+            if (ropeValue >= 1f)
+                EndGame("der");
+            else if (ropeValue <= -1f)
+                EndGame("izq");
+        }
     }
+
+
 
     public void Pull(bool isLeft)
     {
@@ -53,18 +71,41 @@ public class RopeManager : MonoBehaviour
         ropeObject.position = pos;
     }
 
+
     public void EndGame(string winner)
     {
-        musicDuring.Stop();
-        musicAfter.Play();
         if (!gameStarted) return;
 
         gameStarted = false;
+
+        musicDuring.Stop();
+        musicAfter.Play();
+
+        if (ropeAnimator != null)
+        {
+            ropeAnimator.SetBool("gameEnded", true);
+
+            if (winner == "der")
+                ropeAnimator.SetTrigger("rightWon");
+            else if (winner == "izq")
+                ropeAnimator.SetTrigger("leftWon");
+        }
+
         Debug.Log("¡Ganó: " + winner + "!");
+
+        StartCoroutine(WaitAndLoadScene());
     }
+
+
 
     public float GetRopeValue()
     {
         return ropeValue;
     }
+    private IEnumerator WaitAndLoadScene()
+    {
+        yield return new WaitForSeconds(7f);
+        SceneManager.LoadScene("NombreDeTuSiguienteEscena");
+    }
+
 }
